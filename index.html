@@ -3,38 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Viewy – CS Builder & Security Enthusiast</title>
-  <meta name="description" content="Viewy | Building ML, security, and full-stack projects. Hackathon winner & open-source contributor."/>
+  <title>Viewy – Liquid Prism Builder</title>
+  <meta name="description" content="Viewy | CS • ML • Security • Creative Coder from Gaborone"/>
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Particles.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css"/>
 
-  <!-- Tailwind config (extend for animations) -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           animation: {
-            'fade-in-up': 'fadeInUp 1s ease-out forwards',
-            'pulse-slow': 'pulseSlow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 12s ease-in-out infinite',
+            'glow-pulse': 'glowPulse 3s ease-in-out infinite',
           },
           keyframes: {
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
             },
-            pulseSlow: {
-              '0%, 100%': { opacity: '0.4' },
-              '50%': { opacity: '0.8' },
+            glowPulse: {
+              '0%, 100%': { boxShadow: '0 0 20px rgba(59,130,246,0.4)' },
+              '50%': { boxShadow: '0 0 40px rgba(59,130,246,0.7)' },
             }
           }
         }
@@ -42,128 +38,121 @@
     }
   </script>
 </head>
-<body class="bg-gradient-to-br from-[#0a1428] to-[#1e3a8a] text-white min-h-screen overflow-x-hidden relative">
+<body class="bg-gradient-to-br from-indigo-950 via-purple-950 to-cyan-950 text-white min-h-screen overflow-x-hidden relative">
 
-  <!-- Particles Background -->
-  <div id="particles-js" class="absolute inset-0 z-0 pointer-events-none"></div>
+  <!-- Interactive Refraction Canvas Background -->
+  <canvas id="refraction-canvas" class="absolute inset-0 z-0 pointer-events-auto"></canvas>
 
-  <!-- Main Content (above particles) -->
+  <!-- Main Content -->
   <div class="relative z-10">
 
     <!-- Hero -->
     <section class="min-h-screen flex items-center justify-center px-6 py-20">
-      <div class="max-w-5xl mx-auto text-center">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
-          <span id="typed-text"></span>
-          <span class="animate-pulse">|</span>
+      <div class="max-w-5xl mx-auto text-center glass-prism p-12 rounded-3xl backdrop-blur-xl border border-white/10 shadow-2xl">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-purple-300 to-blue-300">
+          <span id="typed"></span><span class="animate-pulse">|</span>
         </h1>
-        <p class="text-xl md:text-2xl text-blue-200 mb-10 max-w-3xl mx-auto">
-          Building explainable ML, web tools, and security projects.  
-          Hackathon participant • Open-source contributor • CS enthusiast from Gaborone.
+        <p class="text-xl md:text-2xl text-cyan-100/90 mb-12 max-w-3xl mx-auto">
+          Liquid prism builder • ML + Security + Creative Code • Gaborone, BW
         </p>
         <div class="flex flex-wrap justify-center gap-6">
-          <a href="#projects" class="bg-blue-600 hover:bg-blue-500 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/50">
-            View Projects
+          <a href="#projects" class="px-10 py-5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-bold text-lg hover:shadow-[0_0_30px_rgba(34,211,238,0.6)] transition-all duration-500">
+            Explore Projects
           </a>
-          <a href="#contact" class="border-2 border-cyan-400 hover:bg-cyan-400/20 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300">
-            Get in Touch
+          <a href="#contact" class="px-10 py-5 border-2 border-purple-400/60 rounded-full font-bold text-lg hover:bg-purple-500/20 transition-all duration-500">
+            Connect
           </a>
         </div>
       </div>
     </section>
 
     <!-- About -->
-    <section id="about" class="py-20 px-6">
-      <div class="max-w-5xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-12 text-cyan-300 animate-fade-in-up">About Me</h2>
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="glass-card p-8 rounded-2xl">
-            <p class="text-lg leading-relaxed mb-6">
-              Hi, I'm Viewy — a passionate computer science builder from Gaborone. I love turning ideas into real tools: from ML risk predictors to security labs and interactive web apps.
-            </p>
-            <p class="text-lg leading-relaxed">
-              Currently exploring explainable AI, web security (OWASP labs), and full-stack development. Always open to hackathons, collaborations, and learning.
-            </p>
+    <section id="about" class="py-24 px-6">
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div class="glass-prism p-10 rounded-3xl backdrop-blur-xl border border-white/10 shadow-xl hover:shadow-2xl transition-shadow">
+          <h2 class="text-4xl font-bold mb-6 text-purple-300">About Viewy</h2>
+          <p class="text-lg leading-relaxed mb-6 text-cyan-100/90">
+            Passionate CS builder turning ideas into interactive tools. From explainable ML predictors to security labs and creative web experiences.
+          </p>
+          <p class="text-lg leading-relaxed text-cyan-100/90">
+            Currently diving into interpretable AI, web/app security, and full-stack creativity. Always up for hackathons and collaborations.
+          </p>
+        </div>
+        <div class="glass-prism p-10 rounded-3xl backdrop-blur-xl border border-white/10 shadow-xl text-center animate-float">
+          <div class="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-purple-500 via-cyan-500 to-blue-500 flex items-center justify-center text-7xl shadow-glow">
+            <i class="fas fa-user-astronaut"></i>
           </div>
-          <div class="glass-card p-8 rounded-2xl text-center">
-            <div class="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-6xl shadow-xl">
-              <i class="fas fa-user-astronaut"></i>
-            </div>
-            <p class="mt-6 text-xl font-semibold">Viewy</p>
-            <p class="text-blue-300">CS • ML • Security</p>
-          </div>
+          <p class="mt-8 text-2xl font-bold">Viewy</p>
+          <p class="text-cyan-300">CS • ML • Security • Creator</p>
         </div>
       </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="py-20 px-6 bg-black/20">
+    <section id="skills" class="py-24 px-6 bg-black/20">
       <div class="max-w-5xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-12 text-cyan-300">Skills & Tools</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div class="glass-card p-6 text-center hover:scale-105 transition-transform">
-            <i class="fab fa-python text-5xl text-blue-400 mb-4"></i>
-            <p class="font-semibold">Python</p>
+        <h2 class="text-4xl font-bold text-center mb-12 text-cyan-300">Core Toolkit</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="glass-prism p-8 rounded-2xl text-center hover:scale-105 transition-transform">
+            <i class="fab fa-python text-6xl text-blue-400 mb-4"></i>
+            <p class="font-bold text-lg">Python</p>
           </div>
-          <div class="glass-card p-6 text-center hover:scale-105 transition-transform">
-            <i class="fas fa-brain text-5xl text-cyan-400 mb-4"></i>
-            <p class="font-semibold">Machine Learning</p>
+          <div class="glass-prism p-8 rounded-2xl text-center hover:scale-105 transition-transform">
+            <i class="fas fa-brain text-6xl text-purple-400 mb-4"></i>
+            <p class="font-bold text-lg">Machine Learning</p>
           </div>
-          <div class="glass-card p-6 text-center hover:scale-105 transition-transform">
-            <i class="fas fa-shield-alt text-5xl text-purple-400 mb-4"></i>
-            <p class="font-semibold">Web Security</p>
+          <div class="glass-prism p-8 rounded-2xl text-center hover:scale-105 transition-transform">
+            <i class="fas fa-shield-halved text-6xl text-cyan-400 mb-4"></i>
+            <p class="font-bold text-lg">Security</p>
           </div>
-          <div class="glass-card p-6 text-center hover:scale-105 transition-transform">
-            <i class="fab fa-js text-5xl text-yellow-400 mb-4"></i>
-            <p class="font-semibold">JavaScript</p>
+          <div class="glass-prism p-8 rounded-2xl text-center hover:scale-105 transition-transform">
+            <i class="fab fa-js text-6xl text-yellow-400 mb-4"></i>
+            <p class="font-bold text-lg">JavaScript</p>
           </div>
-          <!-- Add more as needed -->
+          <!-- Add more icons as needed -->
         </div>
       </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="py-20 px-6">
+    <section id="projects" class="py-24 px-6">
       <div class="max-w-5xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-12 text-cyan-300">Projects</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Project Card Example 1 -->
-          <div class="glass-card overflow-hidden rounded-2xl hover:scale-[1.03] transition-transform duration-300">
-            <div class="h-48 bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
-              <i class="fas fa-heart text-7xl text-white opacity-70"></i>
+        <h2 class="text-4xl font-bold text-center mb-12 text-purple-300">Selected Works</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <!-- Example Project Card -->
+          <div class="glass-prism overflow-hidden rounded-3xl hover:scale-[1.04] transition-transform duration-500 shadow-xl">
+            <div class="h-56 bg-gradient-to-br from-blue-600 via-purple-600 to-cyan-600 flex items-center justify-center relative">
+              <i class="fas fa-heart text-9xl text-white/30 absolute animate-glow-pulse"></i>
             </div>
-            <div class="p-6">
+            <div class="p-8">
               <h3 class="text-2xl font-bold mb-3">FraminghamAI</h3>
-              <p class="text-blue-200 mb-4">ML-powered 10-year CVD risk calculator with SHAP explainability. Built for Byte2Beat hackathon.</p>
-              <a href="https://github.com/yourusername/cardiovascular-risk-ml" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-semibold">
-                View on GitHub →
+              <p class="text-cyan-100/80 mb-4">Explainable ML for 10-year CVD risk with SHAP. Byte2Beat hackathon entry.</p>
+              <a href="https://github.com/yourusername/cardiovascular-risk-ml" target="_blank" class="text-purple-300 hover:text-purple-200 font-semibold">
+                View → 
               </a>
             </div>
           </div>
 
-          <!-- Add 2–4 more project cards similar to above -->
+          <!-- Duplicate & customize 2–4 more cards -->
         </div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-20 px-6 bg-black/20">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-4xl font-bold mb-8 text-cyan-300">Let's Connect</h2>
-        <p class="text-xl mb-10">Open to hackathons, collaborations, internships, or just chatting about CS/security/ML.</p>
-        <div class="flex justify-center gap-8 text-4xl">
+    <section id="contact" class="py-24 px-6 bg-black/30">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-8 text-cyan-300">Let's Build Something</h2>
+        <p class="text-xl mb-12 text-cyan-100/80">Open to collabs, hackathons, internships, or just geeky chats.</p>
+        <div class="flex justify-center gap-10 text-5xl">
           <a href="https://github.com/yourusername" target="_blank" class="hover:text-cyan-400 transition-colors"><i class="fab fa-github"></i></a>
           <a href="https://linkedin.com/in/yourprofile" target="_blank" class="hover:text-cyan-400 transition-colors"><i class="fab fa-linkedin"></i></a>
           <a href="mailto:your.email@example.com" class="hover:text-cyan-400 transition-colors"><i class="fas fa-envelope"></i></a>
-          <!-- Add Twitter/X or others -->
         </div>
       </div>
     </section>
 
   </div>
 
-  <!-- Custom JS -->
   <script src="script.js"></script>
-
 </body>
 </html>
