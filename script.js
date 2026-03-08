@@ -1,23 +1,66 @@
-// Veil lift on scroll reveal
-const veilElements = document.querySelectorAll('.veil-lift, .veil-section');
+// Typing effect
+const roles = ["AI Red Teamer", "Pentester", "Bug Bounty Hunter", "Security Researcher"];
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typingSpeed = 100;
+const deleteSpeed = 50;
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('veil-lift-visible'); // optional extra class if needed
-      observer.unobserve(entry.target);
+function type() {
+  const element = document.getElementById("roles");
+  const currentRole = roles[roleIndex];
+
+  if (!isDeleting && charIndex < currentRole.length) {
+    element.textContent += currentRole.charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typingSpeed);
+  } else if (isDeleting && charIndex > 0) {
+    element.textContent = currentRole.substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(type, deleteSpeed);
+  } else {
+    isDeleting = !isDeleting;
+    if (!isDeleting) {
+      roleIndex = (roleIndex + 1) % roles.length;
     }
-  });
-}, { threshold: 0.1 });
+    setTimeout(type, 1500); // pause before next
+  }
+}
+type();
 
-veilElements.forEach(el => observer.observe(el));
+// Simple particles (canvas)
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-// Optional: Glitch trigger on hover for fun
-document.querySelectorAll('.glass-veil').forEach(card => {
-  card.addEventListener('mouseenter', () => {
-    card.classList.add('animate-glitch');
-  });
-  card.addEventListener('mouseleave', () => {
-    card.classList.remove('animate-glitch');
-  });
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 });
+
+const particles = [];
+for (let i = 0; i < 80; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.random() * 2 + 1,
+    speed: Math.random() * 0.5 + 0.1,
+    color: `rgba(0, 245, 255, ${Math.random() * 0.5 + 0.3})`
+  });
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+    ctx.fillStyle = p.color;
+    ctx.fill();
+
+    p.y += p.speed;
+    if (p.y > canvas.height) p.y = 0;
+  });
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
