@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Viewy – Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: #111;
+      background: #fff;
+      overflow-x: hidden;
+    }
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+    }
+    header {
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .hero-content {
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    h1 {
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      font-weight: 900;
+      color: #15803d;
+      margin-bottom: 1rem;
+      letter-spacing: -2px;
+      line-height: 0.95;
+    }
+    .tagline {
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      color: #444;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: #15803d;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s;
+      margin: 0 0.8rem 1rem;
+      box-shadow: 0 8px 25px rgba(21,128,61,0.25);
+    }
+    .btn:hover { transform: translateY(-4px); box-shadow: 0 15px 35px rgba(21,128,61,0.4); }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #15803d;
+      color: #15803d;
+    }
+    section {
+      padding: 120px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: 3.2rem;
+      color: #15803d;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.5rem;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      transition: all 0.35s;
+    }
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 60px rgba(21,128,61,0.18);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1.8rem;
+    }
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: #222;
+    }
+    footer {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: #111;
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 4.5rem; }
+      .tagline { font-size: 1.6rem; }
+      section { padding: 80px 5%; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<header>
+  <div class="hero-content">
+    <h1>Viewy</h1>
+    <p class="tagline">Building secure, intelligent systems</p>
+    <a href="#projects" class="btn">View Projects</a>
+    <a href="https://github.com/yourusername" target="_blank" class="btn btn-outline">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+  </div>
+</header>
+
+<section id="projects">
+  <h2>Selected Projects</h2>
+  <div class="projects-grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800" alt="Code"/>
+      <div class="card-content">
+        <h3>FraminghamAI</h3>
+        <p>ML-powered cardiovascular risk calculator with SHAP explainability</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1555949963-aa79d0ebc8fb?w=800" alt="Security"/>
+      <div class="card-content">
+        <h3>OWASP Learning Labs</h3>
+        <p>Vulnerability reproduction and mitigation demos</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="Tech"/>
+      <div class="card-content">
+        <h3>Other Experiments</h3>
+        <p>Security tools, algorithms, full-stack prototypes</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Viewy • Built with passion in Gaborone</p>
+</footer>
+
+<script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+      "color": { "value": "#15803d" },
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.5, "random": true },
+      "size": { "value": 3, "random": true },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#15803d",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 2,
+        "direction": "none",
+        "random": true,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": { "enable": true, "mode": "grab" },
+        "onclick": { "enable": true, "mode": "push" },
+        "resize": true
+      },
+      "modes": {
+        "grab": { "distance": 140, "line_linked": { "opacity": 0.7 } },
+        "push": { "particles_nb": 4 }
+      }
+    },
+    "retina_detect": true
+  });
+</script>
+
+</body>
+</html>
