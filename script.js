@@ -1,72 +1,44 @@
-// 1. Particles.js – Neural network style
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 80, density: { enable: true, value_area: 800 } },
-    color: { value: "#3b82f6" }, // blue-cyan
-    shape: { type: "circle" },
-    opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
-    size: { value: 3, random: true },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: "#3b82f6",
-      opacity: 0.4,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: 2,
-      direction: "none",
-      random: true,
-      straight: false,
-      out_mode: "out",
-      bounce: false,
-      attract: { enable: false }
-    }
-  },
-  interactivity: {
-    detect_on: "canvas",
-    events: {
-      onhover: { enable: true, mode: "grab" },
-      onclick: { enable: true, mode: "push" },
-      resize: true
-    },
-    modes: {
-      grab: { distance: 140, line_linked: { opacity: 0.7 } },
-      push: { particles_nb: 4 }
-    }
-  },
-  retina_detect: true
-});
+/* Liquid Glass Prism – core styles */
 
-// 2. Typing animation in hero
-const typedElement = document.getElementById("typed-text");
-const words = ["Viewy", "CS Builder", "ML Enthusiast", "Security Explorer"];
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-function type() {
-  const currentWord = words[wordIndex];
-  if (isDeleting) {
-    typedElement.textContent = currentWord.substring(0, charIndex - 1);
-    charIndex--;
-  } else {
-    typedElement.textContent = currentWord.substring(0, charIndex + 1);
-    charIndex++;
-  }
-
-  let speed = isDeleting ? 80 : 120;
-
-  if (!isDeleting && charIndex === currentWord.length) {
-    speed = 1500; // pause at end
-    isDeleting = true;
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    wordIndex = (wordIndex + 1) % words.length;
-  }
-
-  setTimeout(type, speed);
+.glass-prism {
+  background: rgba(30, 58, 138, 0.15); /* indigo base with transparency */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(165, 180, 252, 0.18); /* soft purple border */
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+              inset 0 0 20px rgba(165, 180, 252, 0.08);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-type(); // start
+.glass-prism:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(59, 130, 246, 0.4),
+              inset 0 0 30px rgba(165, 180, 252, 0.15);
+}
+
+/* Refraction canvas full cover */
+#refraction-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+}
+
+/* Glow pulse for accents */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.9; }
+}
+.animate-glow-pulse { animation: glow-pulse 4s ease-in-out infinite; }
+
+/* Float animation for hero elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+.animate-float { animation: float 12s ease-in-out infinite; }
+
+/* Smooth everything */
+* { transition: all 0.4s ease; }
+html { scroll-behavior: smooth; }
