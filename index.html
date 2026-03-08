@@ -1,85 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kaushar B – Cybersecurity Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<body>
-  <header>
-    <div class="container">
-      <div class="logo">Kaushar B</div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#certs">Certifications</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <title>Viewy – CS Builder & Security Enthusiast</title>
+  <meta name="description" content="Viewy | Building ML, security, and full-stack projects. Hackathon winner & open-source contributor."/>
 
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1>Kaushar B</h1>
-        <h2>Cybersecurity Enthusiast</h2>
-        <p>Web & application security • Hands-on labs • CTFs & learning</p>
-        <div class="social-links">
-          <a href="https://github.com/YOUR-USERNAME" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/YOUR-LINK" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://tryhackme.com/p/YOUR-USERNAME" target="_blank">
-            <i class="fab fa-tryhackme"></i>  <!-- Full TryHackMe icon (requires FA Pro or kit; fallback to shield if not) -->
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Tailwind config (extend for animations) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            'fade-in-up': 'fadeInUp 1s ease-out forwards',
+            'pulse-slow': 'pulseSlow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            pulseSlow: {
+              '0%, 100%': { opacity: '0.4' },
+              '50%': { opacity: '0.8' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gradient-to-br from-[#0a1428] to-[#1e3a8a] text-white min-h-screen overflow-x-hidden relative">
+
+  <!-- Particles Background -->
+  <div id="particles-js" class="absolute inset-0 z-0 pointer-events-none"></div>
+
+  <!-- Main Content (above particles) -->
+  <div class="relative z-10">
+
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center justify-center px-6 py-20">
+      <div class="max-w-5xl mx-auto text-center">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
+          <span id="typed-text"></span>
+          <span class="animate-pulse">|</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-blue-200 mb-10 max-w-3xl mx-auto">
+          Building explainable ML, web tools, and security projects.  
+          Hackathon participant • Open-source contributor • CS enthusiast from Gaborone.
+        </p>
+        <div class="flex flex-wrap justify-center gap-6">
+          <a href="#projects" class="bg-blue-600 hover:bg-blue-500 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/50">
+            View Projects
+          </a>
+          <a href="#contact" class="border-2 border-cyan-400 hover:bg-cyan-400/20 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300">
+            Get in Touch
           </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="about" class="section">
-    <div class="container">
-      <h2>About Me</h2>
-      <div class="about-content">
-        <p>Interested in how systems fail and how to secure them. Focused on web pentesting and building vulnerable environments for learning.</p>
-        <p>Working on personal labs, CTF challenges, and cybersecurity fundamentals.</p>
+    <!-- About -->
+    <section id="about" class="py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 text-cyan-300 animate-fade-in-up">About Me</h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="glass-card p-8 rounded-2xl">
+            <p class="text-lg leading-relaxed mb-6">
+              Hi, I'm Viewy — a passionate computer science builder from Gaborone. I love turning ideas into real tools: from ML risk predictors to security labs and interactive web apps.
+            </p>
+            <p class="text-lg leading-relaxed">
+              Currently exploring explainable AI, web security (OWASP labs), and full-stack development. Always open to hackathons, collaborations, and learning.
+            </p>
+          </div>
+          <div class="glass-card p-8 rounded-2xl text-center">
+            <div class="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-6xl shadow-xl">
+              <i class="fas fa-user-astronaut"></i>
+            </div>
+            <p class="mt-6 text-xl font-semibold">Viewy</p>
+            <p class="text-blue-300">CS • ML • Security</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="skills" class="section skills">
-    <div class="container">
-      <h2>Core Skills</h2>
-      <div class="skills-grid">
-        <div class="skill">Burp Suite</div>
-        <div class="skill">OWASP Top 10</div>
-        <div class="skill">Web Pentesting</div>
-        <div class="skill">Linux</div>
-        <div class="skill">Python</div>
-        <div class="skill">CTFs</div>
-        <div class="skill">TryHackMe</div>
-        <div class="skill">Git</div>
+    <!-- Skills -->
+    <section id="skills" class="py-20 px-6 bg-black/20">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 text-cyan-300">Skills & Tools</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="glass-card p-6 text-center hover:scale-105 transition-transform">
+            <i class="fab fa-python text-5xl text-blue-400 mb-4"></i>
+            <p class="font-semibold">Python</p>
+          </div>
+          <div class="glass-card p-6 text-center hover:scale-105 transition-transform">
+            <i class="fas fa-brain text-5xl text-cyan-400 mb-4"></i>
+            <p class="font-semibold">Machine Learning</p>
+          </div>
+          <div class="glass-card p-6 text-center hover:scale-105 transition-transform">
+            <i class="fas fa-shield-alt text-5xl text-purple-400 mb-4"></i>
+            <p class="font-semibold">Web Security</p>
+          </div>
+          <div class="glass-card p-6 text-center hover:scale-105 transition-transform">
+            <i class="fab fa-js text-5xl text-yellow-400 mb-4"></i>
+            <p class="font-semibold">JavaScript</p>
+          </div>
+          <!-- Add more as needed -->
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Lava Lamp Section Link -->
-  <section class="lava-link-section">
-    <div class="container">
-      <a href="lava-section.html" target="_blank" class="lava-btn">
-        Explore Featured Focus <i class="fas fa-arrow-right"></i>
-      </a>
-    </div>
-  </section>
+    <!-- Projects -->
+    <section id="projects" class="py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 text-cyan-300">Projects</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project Card Example 1 -->
+          <div class="glass-card overflow-hidden rounded-2xl hover:scale-[1.03] transition-transform duration-300">
+            <div class="h-48 bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
+              <i class="fas fa-heart text-7xl text-white opacity-70"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3">FraminghamAI</h3>
+              <p class="text-blue-200 mb-4">ML-powered 10-year CVD risk calculator with SHAP explainability. Built for Byte2Beat hackathon.</p>
+              <a href="https://github.com/yourusername/cardiovascular-risk-ml" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-semibold">
+                View on GitHub →
+              </a>
+            </div>
+          </div>
 
-  <footer>
-    <div class="container">
-      <p>© 2026 Kaushar B – Cybersecurity Portfolio</p>
-    </div>
-  </footer>
+          <!-- Add 2–4 more project cards similar to above -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-6 bg-black/20">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-8 text-cyan-300">Let's Connect</h2>
+        <p class="text-xl mb-10">Open to hackathons, collaborations, internships, or just chatting about CS/security/ML.</p>
+        <div class="flex justify-center gap-8 text-4xl">
+          <a href="https://github.com/yourusername" target="_blank" class="hover:text-cyan-400 transition-colors"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank" class="hover:text-cyan-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:your.email@example.com" class="hover:text-cyan-400 transition-colors"><i class="fas fa-envelope"></i></a>
+          <!-- Add Twitter/X or others -->
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
 </body>
 </html>
